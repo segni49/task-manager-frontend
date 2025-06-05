@@ -1,73 +1,146 @@
-# Welcome to your Lovable project
 
-## Project info
+# Task Manager
 
-**URL**: https://lovable.dev/projects/cf7793f6-6784-4f84-b411-b3aa0e7cb64e
+A beautiful and functional task management application built with React, TypeScript, and Tailwind CSS.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- ✅ **Task Management**: Add, complete, and delete tasks
+- 🔍 **Smart Filtering**: View all tasks, pending tasks, or completed tasks
+- 📊 **Task Statistics**: See your progress with visual stats cards
+- ✨ **Beautiful UI**: Modern design with smooth animations and hover effects
+- 📱 **Responsive Design**: Works perfectly on desktop, tablet, and mobile
+- 🔔 **Toast Notifications**: Get feedback for all your actions
+- ✅ **Form Validation**: Prevents empty tasks and handles edge cases
 
-**Use Lovable**
+## Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cf7793f6-6784-4f84-b411-b3aa0e7cb64e) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (v16 or higher)
+- npm or yarn
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. Clone the repository
+```bash
+git clone <your-repo-url>
+cd task-manager
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. Install dependencies
+```bash
+npm install
+```
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and navigate to `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Usage
 
-**Use GitHub Codespaces**
+### Adding Tasks
+- Type your task in the input field
+- Click "Add Task" or press Enter
+- Tasks cannot be empty and must be under 100 characters
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Managing Tasks
+- **Complete a task**: Click the checkbox next to the task
+- **Delete a task**: Hover over a task and click the trash icon
+- **Filter tasks**: Use the filter buttons to view different task states
 
-## What technologies are used for this project?
+### Task States
+- **All Tasks**: Shows all tasks regardless of completion status
+- **Pending**: Shows only incomplete tasks
+- **Completed**: Shows only completed tasks
 
-This project is built with:
+## Technical Details
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Built With
+- **React 18** - Frontend framework
+- **TypeScript** - Type safety and better developer experience
+- **Tailwind CSS** - Utility-first CSS framework
+- **Shadcn/ui** - High-quality UI components
+- **Lucide React** - Beautiful icons
+- **React Query** - Data fetching and state management
+- **Vite** - Fast build tool and dev server
 
-## How can I deploy this project?
+### Project Structure
+```
+src/
+├── components/
+│   ├── TaskManager.tsx    # Main task management logic
+│   ├── TaskForm.tsx       # Add new tasks form
+│   ├── TaskItem.tsx       # Individual task component
+│   ├── TaskFilter.tsx     # Filter buttons component
+│   └── ui/               # Reusable UI components
+├── pages/
+│   └── Index.tsx         # Main page
+├── hooks/                # Custom React hooks
+└── lib/                  # Utility functions
+```
 
-Simply open [Lovable](https://lovable.dev/projects/cf7793f6-6784-4f84-b411-b3aa0e7cb64e) and click on Share -> Publish.
+### Key Features Implementation
 
-## Can I connect a custom domain to my Lovable project?
+#### Task Data Structure
+```typescript
+interface Task {
+  id: number;
+  title: string;
+  completed: boolean;
+}
+```
 
-Yes, you can!
+#### Validation Rules
+- Task title cannot be empty
+- Task title must be less than 100 characters
+- Whitespace-only titles are rejected
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+#### State Management
+- Local React state for task list
+- Real-time filtering without API calls
+- Optimistic UI updates for better UX
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Customization
+
+### Adding New Features
+The codebase is modular and easy to extend:
+
+1. **Add task priority**: Extend the Task interface with a priority field
+2. **Add due dates**: Include date picker functionality
+3. **Add categories**: Implement task categorization
+4. **Add persistence**: Connect to a backend API or local storage
+
+### Styling
+- Modify `tailwind.config.ts` for custom colors and themes
+- Update component classes for different styling
+- All animations are CSS-based for smooth performance
+
+## Performance
+
+- **Optimized rendering**: Components only re-render when necessary
+- **Efficient filtering**: Client-side filtering for instant results
+- **Smooth animations**: Hardware-accelerated CSS transitions
+- **Responsive images**: Optimized for all screen sizes
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
